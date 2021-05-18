@@ -26,7 +26,7 @@ $Page = 1
 Write-Host "Collecting messages for the last $LogDays days..."
 do 
 { 
-    $CurrMessages = Get-MessageTrace -StartDate (Get-Date).AddDays(-$LogDays) -EndDate (Get-Date)  -PageSize $LogSize  -Page $Page | Select Received,*Address,*IP,Subject,Status,Size,Date
+    $CurrMessages = Get-MessageTrace -StartDate (Get-Date).AddDays(-$LogDays) -EndDate (Get-Date)  -PageSize $LogSize  -Page $Page | Select Received,SenderAddress,FromIP,RecipientAddress,ToIP,Subject,Status,Size
 
     if ($CurrMessages -ne $null)
     {
